@@ -20,7 +20,13 @@ This web application is built using NodeJS, AngularJS, Jade Templates and has us
 1. Set up DAAS by refering the [wiki](https://github.com/bbytes/DAAS/wiki/Getting-started). 
 2. Install NodeJS
 3. Install Yeoman - `npm install -g yo` 
-4. On the root project directory run `grunt server`
+4. On the root project directory run:
+ 	
+    	npm install
+    
+    	bower install
+    
+    	grunt server
 
 
 
