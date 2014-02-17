@@ -34,7 +34,7 @@ module.exports = function(app, passport, db) {
     }
 
     // assign the template engine to .html files
-//    app.use(express.static(config.root + '/app'));
+// app.use(express.static(config.root + '/app'));
     
     // assign the template engine to .html files
     app.engine('html', consolidate[config.templateEngine]);
@@ -48,22 +48,16 @@ module.exports = function(app, passport, db) {
     app.enable('jsonp callback');
 
     app.configure(function() {
+    	app.use( express.bodyParser());
         // The cookieParser should be above session
-        app.use(express.cookieParser());
-
+        app.use(express.cookieParser('secretKey'));
         // Request body parsing middleware should be above methodOverride
         app.use(express.urlencoded());
         app.use(express.json());
         app.use(express.methodOverride());
         app.use(express.logger());
         // Express/Mongo session storage
-//        app.use(express.session({
-//            secret: config.sessionSecret,
-//            store: new mongoStore({
-//                db: db.connection.db,
-//                collection: config.sessionCollection
-//            })
-//        }));
+        app.use(express.session({secret: 'secretKey'}));
 
         // Dynamic helpers
         app.use(helpers(config.app.name));
@@ -89,7 +83,7 @@ module.exports = function(app, passport, db) {
             // Treat as 404
             if (~err.message.indexOf('not found')) return next();
 
-            // Log it 
+            // Log it
             console.error(err.stack);
 
             // Error page
