@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+ 
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -33,6 +33,18 @@ module.exports = function (grunt) {
         options: {
           livereload: true
         }
+      },
+      html: {
+          files: ['server/views/**'],
+          options: {
+              livereload: true,
+          },
+      },
+      css: {
+          files: ['public/css/**'],
+          options: {
+              livereload: true
+          }
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],

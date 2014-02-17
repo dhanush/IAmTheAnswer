@@ -69,3 +69,11 @@ build
 node_modules
 /.nodemonignore
 /.project
+
+.DS_Store
+.nodemonignore
+.sass-cache/
+.bower-*/
+.idea/
+
+test/coverage/

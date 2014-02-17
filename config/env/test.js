@@ -1,10 +1,8 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-test',
-    port: 3001,
     app: {
-        name: 'MEAN - A Modern Stack - Test'
+        name: 'I Am The Answer'
     },
     facebook: {
         clientID: 'APP_ID',
@@ -16,14 +14,9 @@ module.exports = {
         clientSecret: 'CONSUMER_SECRET',
         callbackURL: 'http://localhost:3000/auth/twitter/callback'
     },
-    github: {
-        clientID: 'APP_ID',
-        clientSecret: 'APP_SECRET',
-        callbackURL: 'http://localhost:3000/auth/github/callback'
-    },
     google: {
         clientID: 'APP_ID',
         clientSecret: 'APP_SECRET',
         callbackURL: 'http://localhost:3000/auth/google/callback'
-    }
+    },
 };

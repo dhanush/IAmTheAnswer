@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var express = require('express'),
+consolidate = require('consolidate'),
      flash = require('connect-flash'),
     helpers = require('view-helpers'),
     config = require('./config');
@@ -33,13 +34,15 @@ module.exports = function(app, passport, db) {
     }
 
     // assign the template engine to .html files
-//    app.engine('html', consolidate[config.templateEngine]);
-    app.use(express.static(config.root + '/app'));
+//    app.use(express.static(config.root + '/app'));
+    
+    // assign the template engine to .html files
+    app.engine('html', consolidate[config.templateEngine]);
     // set .html as the default extension
     app.set('view engine', 'html');
 
     // Set views path, template engine and default layout
-    app.set('views', config.root + '/app/views');
+    app.set('views', config.root + '/server/views');
 
     // Enable jsonp
     app.enable('jsonp callback');
@@ -77,7 +80,7 @@ module.exports = function(app, passport, db) {
 
         // Setting the fav icon and static folder
         app.use(express.favicon());
-        app.use(express.static(config.root + '/public'));
+        app.use(express.static(config.root + '/app'));
 
         // Assume "not found" in the error msgs is a 404. this is somewhat
         // silly, but valid, you can do whatever you like, set properties,
@@ -86,7 +89,7 @@ module.exports = function(app, passport, db) {
             // Treat as 404
             if (~err.message.indexOf('not found')) return next();
 
-            // Log it
+            // Log it 
             console.error(err.stack);
 
             // Error page
