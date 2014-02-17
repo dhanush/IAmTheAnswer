@@ -67,3 +67,5 @@ build
 .grunt
 
 node_modules
+/.nodemonignore
+/.project

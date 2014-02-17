@@ -56,40 +56,55 @@ module.exports = function (grunt) {
         ]
       }
     },
-
-    // The actual grunt server settings
-    connect: {
-      options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
-        livereload: 35729
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: [
-            '.tmp',
-            '<%= yeoman.app %>'
-          ]
+    nodemon: {
+        dev: {
+            options: {
+                file: 'server.js',
+                args: [],
+                ignoredFiles: ['public/**'],
+                watchedExtensions: ['js'],
+                nodeArgs: ['--debug'],
+                delayTime: 1,
+                env: {
+                    PORT: 3000
+                },
+                cwd: __dirname
+            }
         }
-      },
-      test: {
-        options: {
-          port: 9001,
-          base: [
-            '.tmp',
-            'test',
-            '<%= yeoman.app %>'
-          ]
-        }
-      },
-      dist: {
-        options: {
-          base: '<%= yeoman.dist %>'
-        }
-      }
     },
+    // The actual grunt server settings
+//    connect: {
+//      options: {
+//        port: 9000,
+//        // Change this to '0.0.0.0' to access the server from outside.
+//        hostname: 'localhost',
+//        livereload: 35729
+//      },
+//      livereload: {
+//        options: {
+//          open: true,
+//          base: [
+//            '.tmp',
+//            '<%= yeoman.app %>'
+//          ]
+//        }
+//      },
+//      test: {
+//        options: {
+//          port: 9001,
+//          base: [
+//            '.tmp',
+//            'test',
+//            '<%= yeoman.app %>'
+//          ]
+//        }
+//      },
+//      dist: {
+//        options: {
+//          base: '<%= yeoman.dist %>'
+//        }
+//      }
+//    },
 
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
@@ -324,7 +339,8 @@ module.exports = function (grunt) {
     }
   });
 
-
+  grunt.loadNpmTasks('grunt-nodemon');
+  
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -335,7 +351,7 @@ module.exports = function (grunt) {
       'bower-install',
       'concurrent:server',
       'autoprefixer',
-      'connect:livereload',
+      'nodemon',
       'watch'
     ]);
   });
