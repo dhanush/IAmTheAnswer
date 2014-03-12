@@ -25,6 +25,10 @@ angular.module('iamTheAnswerApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/dialogs', {
+        templateUrl: 'partials/dialogs',
+        controller: 'DialogsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

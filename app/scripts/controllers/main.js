@@ -5,4 +5,7 @@ angular.module('iamTheAnswerApp')
     $http.get('/api/awesomeThings').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
     });
+    $http.get('/api/dialogs').success(function(dialogs) {
+        $scope.dialogs = dialogs;
+      });
   });
