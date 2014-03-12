@@ -1,21 +1,57 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
 
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
-  </div>
-</div>
 
+
+<div>
+	<div class="row wrap">
+
+		<!--center-->
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="jumbotron"
+					style="padding-left: 30px;padding-top: 5px;  height: 120px; background-color: white;">
+					<input type="text" id="search" name="search"
+						style="width: 450px; float: left;" /> <input type="button"
+						id="search" name="search" style="width: 150px; float: left;"
+						value="Search" />
+				</div>
+			</div>
+		</div>
+		<!--/center-->
+
+		<!--right-->
+		<div class="col-sm-6" style="padding-right: 26px">
+
+			<div class="row" >
+				<div class="col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Most Popular</div>
+						<div class="panel-body"></div>
+					</div>
+					<hr>
+					<div class="panel panel-default">
+						<div class="panel-heading">Top Rated</div>
+						<div class="panel-body"></div>
+					</div>
+					<hr>
+					<div class="panel panel-default">
+						<div class="panel-heading">Most Popular By --Genre--</div>
+						<div class="panel-body"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--/right-->
+
+	</div>
+	<br />
+
+
+
+
+</div>
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+	<p>Built by Dhanush Gopinath using Yeoman</p>
 </div>
