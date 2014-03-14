@@ -9,15 +9,15 @@ The intention of this project is to be a database of Malayalam Movie Dialogues l
 
 #### Backend ####
 
-I Am The Answer is a web application which is depended on another Open Source Product [DAAS](https://github.com/bbytes/DAAS), from my company Beyond Bytes Technologies. DAAS is the layer that sits on top of a GraphDB for storage. DAAS supports schemaless data storage using REST api. It has security layer using OAuth 2.0.
+I Am The Answer is a web application based on the MEAN stack. MEAN stack is the abbreviation of MongoDB, ExpressJS, AngularJS and NodeJS 
 
 #### Frontend ####
 
-This web application is built using NodeJS, AngularJS, Jade Templates and has used Yeoman for scaffolding (`yo`), building (`grunt`) and package management (`bower`). I use PassportJS for Security layer, and logging using Google, Facebook and Twitter will be implemented  
+This web application is built using NodeJS, AngularJS and has used Yeoman for scaffolding (`yo`), building (`grunt`) and package management (`bower`). I use PassportJS for Security layer, and logging using Google, Facebook and Twitter will be implemented  
 
 #### Getting Started ####
 
-1. Set up DAAS by refering the [wiki](https://github.com/bbytes/DAAS/wiki/Getting-started). 
+
 2. Install NodeJS
 3. Install Yeoman - `npm install -g yo` 
 4. On the root project directory run:
