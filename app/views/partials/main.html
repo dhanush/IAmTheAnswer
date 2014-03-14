@@ -10,33 +10,63 @@
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="jumbotron"
-					style="padding-left: 30px;padding-top: 5px;  height: 120px; background-color: white;">
+					style="padding-left: 30px; padding-top: 5px; height: 120px; background-color: white;">
 					<input type="text" id="search" name="search"
 						style="width: 450px; float: left;" /> <input type="button"
 						id="search" name="search" style="width: 150px; float: left;"
-						value="Search" />
-						
-						
-						"I Am The Answer" is a famous dialogue from the Malayalam cult comedy movie *[Mazha Peyyunnu Maddhalam Kottunnu](http://en.wikipedia.org/wiki/Mazha_Peyyunnu_Maddalam_Kottunnu)* directed by Priyadarshan. There will be only very few Malayalees(people from the state of Kerala in India) who would not have seen that movie. The YouTube link of that famous scene is available [here](http://www.youtube.com/watch?v=B2tRL7r3uSE).
+						value="Search" /> <br />
+				</div>
+				<div class="col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">About Us</div>
+						<div class="panel-body">
+							<p>
+								"I Am The Answer" is a famous dialogue from the Malayalam cult
+								comedy movie <i> <a
+									href="http://en.wikipedia.org/wiki/Mazha_Peyyunnu_Maddalam_Kottunnu">Mazha
+										Peyyunnu Maddhalam Kottunnu</a></i> directed by Priyadarshan. There
+								will be only very few Malayalees (people from the state of
+								Kerala in India) who would not have seen that movie.
+							</p>
+							<p>The intention of this project is to be a database of
+								Malayalam Movie Dialogues like an IMDb is for Movies.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<object width="640" height="360">
+								<param name="movie"
+									value="http://www.youtube.com/watch?v=B2tRL7r3uSE&hl=en_US&feature=player_editpage&theme=light&color=red&version=3&showinfo=0&rel=0"></param>
+								<param name="allowFullScreen" value="false"></param>
+								<param name="allowScriptAccess" value="always"></param>
+								<embed
+									src="http://www.youtube.com/v/B2tRL7r3uSE&feature=youtube_gdata_player&version=3&showinfo=0?rel=0&modestbranding=1"
+									type="application/x-shockwave-flash" allowfullscreen="true"
+									allowScriptAccess="always" width="640" height="360"></embed>
+							</object>
 
-The intention of this project is to be a database of Malayalam Movie Dialogues like an IMDb is for Movies. This is a small step, starting with Malayalam language, but can be enhanced for other languages as well and hence I intend to make this as an open source project. 
+						</div>
+					</div>
 				</div>
 			</div>
+
 		</div>
 		<!--/center-->
 
 		<!--right-->
 		<div class="col-sm-6" style="padding-right: 26px">
 
-			<div class="row" >
+			<div class="row">
 				<div class="col-xs-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">Most Popular</div>
 						<div class="panel-body">
-						<ul ng-repeat="dialog in dialogs">
-							<li>{{dialog.text}}</li>
-						</ul>
-						
+							<ul ng-repeat="dialog in dialogs">
+								<li>{{dialog.text}}</li>
+							</ul>
+
 						</div>
 					</div>
 					<hr>
