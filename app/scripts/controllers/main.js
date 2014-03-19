@@ -2,10 +2,11 @@
 
 angular.module('iamTheAnswerApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+	  
+	bindAllTextElements();
+	  
     $http.get('/api/dialogs').success(function(dialogs) {
         $scope.dialogs = dialogs;
+        console.log(dialogs)
       });
   });
