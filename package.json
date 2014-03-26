@@ -9,9 +9,9 @@
     "connect-mongo": "~0.4.0",
     "passport": "latest",
     "passport-local": "latest",
-	"passport-facebook": "~1.0.2",
-	"passport-twitter": "~1.0.2",
-	"passport-google-oauth": "~0.1.5",
+    "passport-facebook": "~1.0.2",
+    "passport-twitter": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
     "ejs": "~0.8.4"
   },
   "devDependencies": {
@@ -55,7 +55,8 @@
     "karma-coffee-preprocessor": "~0.1.2",
     "karma-phantomjs-launcher": "~0.1.1",
     "karma": "~0.10.9",
-    "karma-ng-html2js-preprocessor": "~0.1.0"
+    "karma-ng-html2js-preprocessor": "~0.1.0",
+    "grunt-connect-proxy": "~0.1.10"
   },
   "engines": {
     "node": ">=0.10.0"

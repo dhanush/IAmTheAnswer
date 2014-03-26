@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('iamTheAnswerApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $http) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -23,4 +23,11 @@ angular.module('iamTheAnswerApp')
         });
       }
     };
+    
+    $scope.loginViaTwitter = function () {
+    	
+    	Auth.loginViaTwitter(function (data) {
+    		console.log(data);
+    	});
+    }
   });

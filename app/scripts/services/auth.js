@@ -1,12 +1,37 @@
 'use strict';
 
 angular.module('iamTheAnswerApp')
-  .factory('Auth', function Auth($location, $rootScope, Session, User, $cookieStore) {
+  .factory('Auth', function Auth($location, $rootScope, Session, User, $cookieStore, TwitterSession, $http) {
     
     // Get currentUser from cookie
     $rootScope.currentUser = $cookieStore.get('user') || null;
     $cookieStore.remove('user');
 
+    
+    function setCookie(httpService, currentRoute) {
+        var deferred = $q.defer();
+        // set the current route's needsLogin false so the 
+        // interceptor doesn't catch this infinitely.
+        currentRoute.needsLogin = false;
+
+        if (!$cookies.userId) {
+          return httpService.get('/see-if-user-is-logged-in-on-server')
+            .success(function (user) {
+              if (user) {
+                $cookies.userId = user.id;
+                deferred.resolve();
+              } else {
+                delete $cookies.userId;
+                deferred.reject();
+              }
+            })
+            .error(function (user) {
+              deferred.reject();
+            });
+        }
+      }
+
+    
     return {
 
       /**
@@ -30,6 +55,17 @@ angular.module('iamTheAnswerApp')
         }).$promise;
       },
 
+      loginViaTwitter: function(callback) {
+    	  var cb = callback || angular.noop;
+    	  
+    	  TwitterSession.login(function(user){
+//    		  $rootScope.currentUser = user;
+              return cb();
+    	  }, function(err) {
+              return cb(err);
+          });
+      },
+      
       /**
        * Unauthenticate user
        * 

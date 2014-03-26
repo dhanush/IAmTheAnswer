@@ -5,7 +5,7 @@
 	<div class="row" >
 		<div class="col-md-6">
 			<a href="/auth/facebook"><img src="/images/icons/facebook.png"></a>
-			<a href="/auth/twitter"><img src="/images/icons/twitter.png"></a>
+			<a ng-click = loginViaTwitter() ><img src="/images/icons/twitter.png"></a>
 			<a href="/auth/google"><img src="/images/icons/google.png"></a>
 		</div>
 
@@ -37,7 +37,7 @@
 
       <button type="submit" class="btn btn-lg btn-primary"> Sign in </button>
     </form> -->
-			<form class="signin form-horizontal" ng-submit="login(form)">
+			<form class="signin form-horizontal" name="form" ng-submit="login(form)">
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="email">Email</label>
 					<div class="col-md-8">

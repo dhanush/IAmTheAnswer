@@ -3,6 +3,7 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
+    passport = require('passport'),
     mongoose = require('mongoose');
 
 /**
@@ -29,13 +30,11 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 // Populate empty DB with sample data
 require('./lib/config/dummydata');
   
-// Passport Configuration
-var passport = require('./lib/config/passport');
-
 var app = express();
 
 // Express settings
 require('./lib/config/express')(app);
+
 
 // Routing
 require('./lib/routes')(app);
