@@ -64,7 +64,7 @@
 						<div class="panel-heading">Most Popular</div>
 						<div class="panel-body">
 							<ul ng-repeat="dialog in dialogs">
-								<li>{{dialog.text}}</li>
+								<li> <a href="/dialogs/{{dialog._id}}"> {{dialog.text}} </a></li>
 							</ul>
 
 						</div>

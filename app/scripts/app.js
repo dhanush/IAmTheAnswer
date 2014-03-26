@@ -4,7 +4,8 @@ angular.module('iamTheAnswerApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -26,6 +27,14 @@ angular.module('iamTheAnswerApp', [
         authenticate: true
       })
       .when('/dialogs', {
+        templateUrl: 'partials/dialogs',
+        controller: 'DialogsCtrl'
+      })
+      .when('/dialogs/:id', {
+        templateUrl: 'partials/dialogs',
+        controller: 'DialogsCtrl'
+      })
+      .when('/dialogs/add', {
         templateUrl: 'partials/dialogs',
         controller: 'DialogsCtrl'
       })

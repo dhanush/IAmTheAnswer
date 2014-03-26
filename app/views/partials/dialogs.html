@@ -1,1 +1,98 @@
-<p>This is the dialogs view.</p>
+<div ng-include="'partials/navbar'"></div>
+<br />
+<div class="container-fluid" id="divTable" ng-show="showTable">
+	<div class="row-fluid">
+		<div class="span9">
+			<table
+				class="table table-striped table-bordered table-hover table-checkbox"
+				id="accounts">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Dialog</th>
+						<th>Movie</th>
+						<th>Genre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="dialog in dialogs">
+						<td><input type="radio" name="selection" ng-value="false"
+							ng-click="handleSelection(dialog._id)"></td>
+						<td>{{dialog.text}}</td>
+						<td>{{dialog.movie}}</td>
+						<td>{{dialog.genre.type}}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+	<div style="padding-left: 15px" class="row-fluid">
+		<div class="span1"></div>
+		<div class="span5" style="float: right; padding-right: 10px">
+			<div class="btn-toolbar">
+				<div class="btn-group">
+					<button class="btn btn-success" ng-click="showAddDialogView()">Add
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="btn-toolbar">
+				<div class="btn-group">
+					<button id="editAppBtn" class="btn btn-success"
+						ng-click="editDeal()" ng-disabled="editDealChecked">Edit</button>
+					<button id="delAppBtn" class="btn btn-danger"
+						ng-click="deleteDeal()" ng-disabled="delDealChecked">Delete</button>
+
+				</div>
+			</div>
+		</div>
+		<!-- span3 -->
+	</div>
+	<!-- row fluid -->
+</div>
+
+<div class="container-fluid" id="divAddDeal" ng-hide="showTable">
+	<form class="form-horizontal" novalidate="novalidate">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Dialog</label>
+			<div class="col-sm-4">
+				<input id="dialogText" class="form-control" type="text"
+					ng-model="dialog.text" required>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="dealTitle">Movie</label>
+			<div class="col-sm-4">
+				<input id="dialogMovie" class="form-control" type="text"
+					ng-model="dialog.movie" required>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="availableOn">Genre</label>
+			<div class="col-sm-4">
+				<select id="genres" ng-model="genre" class="form-control"
+					ng-options="genre.type for genre in genres" required></select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button id="backBtn" class="btn btn-success" ng-click="goBack()"
+					ng-disabled="disableBack">Back</button>
+				<button id="updateBtn" class="btn btn-success"
+					ng-click="updateDialog(dialog)" ng-disabled="disableBack"
+					ng-show="showUpdateBtn">Update</button>
+				<button id="saveBtn" class="btn btn-success"
+					ng-click="saveDialog(dialog)" ng-show="showSaveBtn">Save</button>
+			</div>
+		</div>
+
+	</form>
+	<!-- form end -->
+</div>
